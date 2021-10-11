@@ -18,11 +18,11 @@ import com.morpheusdata.model.Permission
  */
 class CrowdinProvider extends AbstractGlobalUIComponentProvider {
 	Plugin plugin
-	MorpheusContext morpheusContext
+	MorpheusContext morpheus
 
 	CrowdinProvider(Plugin plugin, MorpheusContext context) {
 		this.plugin = plugin
-		this.morpheusContext = context
+		this.morpheus = context
 	}
 
 	@Override
@@ -56,6 +56,8 @@ class CrowdinProvider extends AbstractGlobalUIComponentProvider {
 	@Override
 	HTMLResponse renderTemplate(User user, Account account) {
 		ViewModel<String> model = new ViewModel<String>()
+		def nonse = morpheus.getWebRequest().getNonceToken()
+		model.object = nonse.toString()
 		getRenderer().renderTemplate("hbs/crowdin", model)
 	}
 
