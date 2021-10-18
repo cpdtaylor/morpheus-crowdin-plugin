@@ -12,19 +12,42 @@ import com.morpheusdata.views.HTMLResponse
 import com.morpheusdata.views.ViewModel
 import com.morpheusdata.model.UIScope
 import com.morpheusdata.model.Permission
+import com.morpheusdata.core.LocalizationProvider
+import com.morpheusdata.model.CustomLocale
 
 /**
  * CrowdinProvider Class
  */
-class CrowdinProvider extends AbstractGlobalUIComponentProvider {
+class CrowdinProvider extends AbstractGlobalUIComponentProvider implements LocalizationProvider {
 	Plugin plugin
 	MorpheusContext morpheus
+	CustomLocale customLocale = new CustomLocale('Translate With Crowdin', 'zy')
 
 	CrowdinProvider(Plugin plugin, MorpheusContext context) {
 		this.plugin = plugin
 		this.morpheus = context
 	}
-
+	
+	List<CustomLocale> getCustomLocales() {
+		return [this.customLocale]
+	}
+	
+	List<CustomLocale> getCustomLocales(User user) {
+		def rtn = []
+		def show = true
+		if(user) {
+			plugin.permissions.each { Permission permission ->
+				if(user.permissions[permission.code] != permission.availableAccessTypes.last().toString()){
+					show = false
+				}
+			}
+		}
+		if (show) {
+			rtn << this.customLocale
+		}
+		return rtn
+	}
+	
 	@Override
 	MorpheusContext getMorpheus() {
 		morpheusContext

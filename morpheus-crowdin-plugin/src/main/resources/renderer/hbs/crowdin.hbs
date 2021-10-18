@@ -4,15 +4,12 @@
     req.send(null);
     var languageCode = req.getResponseHeader('Content-Language').toLowerCase();
     if (languageCode == 'zy') {
-      $("ul.dropdown-menu.list.user-list").append('<li><a href="/?lang=">Stop Translating</a></li>');
         var _jipt = [];
         _jipt.push(['project', 'morpheus']);
         _jipt.push(['escape', function() {
-          window.location.href = "/operations/dashboard?lang=";
+          window.location.href = "/user-settings?lang=";
         }]);
         $.getScript( "//cdn.crowdin.com/jipt/jipt.js", function( data, textStatus, jqxhr ) {
         });
-    } else {
-      $("ul.dropdown-menu.list.user-list").append('<li><a href="/?lang=zy">Translate</a></li>');
     }
 </script>
