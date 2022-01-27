@@ -13,6 +13,11 @@ import com.morpheusdata.model.Permission
 class CrowdinPlugin extends Plugin {
 
 	@Override
+	String getCode() {
+		return 'crowdin-translations-plugin'
+	}
+
+	@Override
 	void initialize() {
 		CrowdinProvider crowdinProvider = new CrowdinProvider(this, morpheus)
 		this.pluginProviders.put(crowdinProvider.providerCode, crowdinProvider)

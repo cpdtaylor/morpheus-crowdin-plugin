@@ -1,65 +1,41 @@
 buildscript {
-	repositories {
-		mavenLocal()
-		jcenter()
-	}
-	dependencies {
-		classpath "com.bertramlabs.plugins:asset-pipeline-gradle:$assetPipelineVersion"
-	}
+    dependencies {
+        classpath "com.github.jengelman.gradle.plugins:shadow:6.0.0"
+        classpath "io.github.gradle-nexus:publish-plugin:1.0.0"
+    }
 }
 
-apply plugin: 'com.github.johnrengelman.shadow'
+plugins {
+    id "com.bertramlabs.asset-pipeline" version "3.3.2"
+}
 
 apply plugin: 'java'
 apply plugin: 'groovy'
-apply plugin: 'idea'
 apply plugin: 'maven-publish'
-apply plugin: 'asset-pipeline'
+apply plugin: 'com.github.johnrengelman.shadow'
 
 group = 'com.morpheusdata'
-version = '2.0.0'
-ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
-repositories {
-	mavenLocal()
-	jcenter()
-	mavenCentral()
-}
+version = '2.0.1'
 
-configurations {
-	provided
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
+
+repositories {
+    mavenCentral()
+		maven { url "https://plugins.gradle.org/m2/" }
+		jcenter()
+		mavenLocal()
 }
 
 dependencies {
-	provided project(':morpheus-plugin-api')
-	implementation "org.codehaus.groovy:groovy-all:$groovyVersion"
-	implementation "org.slf4j:slf4j-api:$slf4jVersion"
-	implementation "org.slf4j:slf4j-parent:$slf4jVersion"
-
-	// Include morpheus-core and it's dependencies
-	testImplementation project(':morpheus-plugin-api')
-	testImplementation 'io.reactivex.rxjava2:rxjava:2.2.0'
-	testImplementation "org.slf4j:slf4j-parent:$slf4jVersion"
-
-	testImplementation "org.codehaus.groovy:groovy-all:$groovyVersion"
-	testImplementation project(':morpheus-test-provider')
-	testImplementation 'net.bytebuddy:byte-buddy:1.9.3'
-	testImplementation 'org.objenesis:objenesis:2.6'
-	testImplementation "org.spockframework:spock-core:$spockVersion"
-	testImplementation 'cglib:cglib-nodep:3.2.12'
+    compileOnly 'com.morpheusdata:morpheus-plugin-api:0.12.0'
+    compileOnly 'org.codehaus.groovy:groovy-all:2.5.6'
+    compileOnly 'io.reactivex.rxjava2:rxjava:2.2.0'
+    compileOnly "org.slf4j:slf4j-api:1.7.26"
+    compileOnly "org.slf4j:slf4j-parent:1.7.26"
 }
-configurations {
-}
-
-sourceSets {
-	main {
-		compileClasspath += configurations.provided
-	}
-}
-
-assets {
-	packagePlugin = false //set to true if this is a library
-}
-
 
 jar {
 	manifest {
@@ -70,39 +46,6 @@ jar {
 	}
 }
 
-java {
-	withSourcesJar()
-	withJavadocJar()
-}
-
-task morpheusJavaDoc(type: Javadoc) {
-	source = sourceSets.main.allJava
-	title = "Morpheus Core Docs"
-}
-
-task(console, dependsOn: 'classes', type: JavaExec) {
-	main = 'groovy.ui.Console'
-	classpath = sourceSets.main.runtimeClasspath
-}
-
-publishing {
-	publications {
-		maven(MavenPublication) {
-			artifactId 'morpheus-test-provider'
-			from components.java
-		}
-	}
-}
-
-test {
-	testLogging {
-		exceptionFormat = 'full'
-		showStandardStreams = true
-	}
-}
-
-tasks.withType(com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar) {
-	destinationDirectory = file("$rootDir/plugins")
-}
-
 tasks.assemble.dependsOn tasks.shadowJar
+
+
