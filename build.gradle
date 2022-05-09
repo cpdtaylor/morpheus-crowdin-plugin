@@ -40,18 +40,18 @@ dependencies {
 jar {
 	manifest {
 		attributes(
-				'Plugin-Class': 'com.morpheusdata.crowdin.CrowdinPlugin',
-				'Plugin-Version': version,
-        'Morpheus-Name': 'Crowdin Localization Plugin',
-        'Morpheus-Organization': 'morpheus',
-        'Morpheus-Code': 'crowdin-localization-plugin',
-        'Morpheus-Description': 'Plugin for Morpheus Localization with Crowdin',
-        'Morpheus-Logo': 'assets/crowdin.svg',
-        'Morpheus-Logo-Dark': 'assets/crowdin-white.svg',
-        'Morpheus-Color': '#ffffff',
-        'Morpheus-Labels': 'Plugin, Translations, Localization, Crowdin, Internationalization','i18n',
-        'Morpheus-Repo': 'https://github.com/cpdtaylor/morpheus-crowdin-plugin',
-        'Morpheus-Min-Appliance-Version': "5.4.5"
+			'Plugin-Class': 'com.morpheusdata.crowdin.CrowdinPlugin',
+			'Plugin-Version': version,
+			'Morpheus-Name': 'Crowdin Localization Plugin',
+			'Morpheus-Organization': 'morpheus',
+			'Morpheus-Code': 'crowdin-localization-plugin',
+			'Morpheus-Description': 'Plugin for Morpheus Localization with Crowdin',
+			'Morpheus-Logo': 'assets/crowdin.svg',
+			'Morpheus-Logo-Dark': 'assets/crowdin-white.svg',
+			'Morpheus-Color': '#ffffff',
+			'Morpheus-Labels': 'Plugin, Translations, Localization, Crowdin, Internationalization','i18n',
+			'Morpheus-Repo': 'https://github.com/cpdtaylor/morpheus-crowdin-plugin',
+			'Morpheus-Min-Appliance-Version': "5.4.5"
 		)
 	}
 }
