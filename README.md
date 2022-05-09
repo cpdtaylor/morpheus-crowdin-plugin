@@ -8,3 +8,5 @@ The Morpheus UI Crowdin Plugin enables translators to review and edit Morpheus t
 All of the Morpheus UI Strings that can be localized are hosted on the centralized Crowdin platform in the “morpheus” project. Users who wish to provide translations for Morpheus in their chosen language(s) can be granted access to the Crowdin platform where they can provide their translations. All translation activity is saved into the Crowdin platform and the Morpheus Translation Memory. 
 
 For more information and a how-to guide please see here: https://support.morpheusdata.com/scormanywhere__SCORM_Player?inline=1&courseId=a7P4N000000KQy7UAG
+
+![](translate-example.gif)
