@@ -49,7 +49,7 @@ jar {
 			'Morpheus-Logo': 'assets/crowdin.svg',
 			'Morpheus-Logo-Dark': 'assets/crowdin-white.svg',
 			'Morpheus-Color': '#ffffff',
-			'Morpheus-Labels': 'Plugin, Translations, Localization, Crowdin, Internationalization','i18n',
+			'Morpheus-Labels': 'Plugin, Translations, Localization, Crowdin, Internationalization, i18n',
 			'Morpheus-Repo': 'https://github.com/cpdtaylor/morpheus-crowdin-plugin',
 			'Morpheus-Min-Appliance-Version': "5.4.5"
 		)
