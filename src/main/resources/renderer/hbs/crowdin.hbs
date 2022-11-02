@@ -6,10 +6,15 @@
     if (languageCode == 'zy') {
         var _jipt = [];
         _jipt.push(['project', 'morpheus']);
+        _jipt.push(['preload_texts', true]);
         _jipt.push(['escape', function() {
           window.location.href = "/user-settings?lang=";
         }]);
-        $.getScript( "//cdn.crowdin.com/jipt/jipt.js", function( data, textStatus, jqxhr ) {
+        _jipt.push(['before_dom_insert', function(text, node, attribute) {
+          window.dispatchEvent(new Event('resize')); //force resize to fix collapsed headers in Morpheus UI?
+          return text
+        }]);
+        $.getScript( "//cdn.crowdin.com/jipt/jipt.js").done(function(script, textStatus) {
         });
     }
 </script>
