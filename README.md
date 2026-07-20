@@ -1,5 +1,7 @@
 # Morpheus Crowdin Plugin
 
+![](translate-example.gif)
+
 The Morpheus UI Crowdin Plugin enables translators to review and edit Morpheus translations stored within the Morpheus Crowdin project, directly within the Morpheus UI. Translations that are created/edited through the Plugin are saved back to the Crowdin platform and will be built into the next Morpheus UI release. With the Plugin enabled, users can navigate the Morpheus UI as usual and can quickly jump in and out of the Crowdin translation context.
 
 All of the Morpheus UI Strings that can be localized are hosted on the centralized [Crowdin platform](https://hpe-morpheus.crowdin.com/) in the "morpheus" project. Users who wish to provide translations for Morpheus in their chosen language(s) can be granted access to the Crowdin platform where they can provide their translations. All translation activity is saved into the Crowdin platform and the Morpheus Translation Memory.
@@ -15,10 +17,6 @@ Where possible, Crowdin will perform AI translation after any 100% Translation M
 - [Installing](#installing)
 - [Detailed Usage](#detailed-usage)
 - [License](#license)
-
----
-
-![Crowdin in-context translation example](https://raw.githubusercontent.com/cpdtaylor/morpheus-crowdin-plugin/master/translate-example.gif)
 
 ---
 
