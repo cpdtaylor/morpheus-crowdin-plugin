@@ -6,8 +6,6 @@ All of the Morpheus UI Strings that can be localized are hosted on the centraliz
 
 Where possible, Crowdin will perform AI translation after any 100% Translation Memory matches, but these will require QA approval before being shipped into a release.
 
-![](translate-example.gif)
-
 ## 📑 Table of Contents
 
 - [Features](#features)
@@ -17,6 +15,10 @@ Where possible, Crowdin will perform AI translation after any 100% Translation M
 - [Installing](#installing)
 - [Detailed Usage](#detailed-usage)
 - [License](#license)
+
+---
+
+![Crowdin in-context translation example](translate-example.gif)
 
 ---
 
