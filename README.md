@@ -18,7 +18,7 @@ Where possible, Crowdin will perform AI translation after any 100% Translation M
 
 ---
 
-![Crowdin in-context translation example](translate-example.gif)
+![Crowdin in-context translation example](https://raw.githubusercontent.com/cpdtaylor/morpheus-crowdin-plugin/master/translate-example.gif)
 
 ---
 
